@@ -15,7 +15,7 @@ int main(int argc, char ** argv)
 	sf::Vector2f min_point(  0.0f,   0.0f);
 	sf::Vector2f max_point(975.0f, 975.0f);
 
-    const auto N = 200U;
+    const auto N = 500U;
 	const auto r = 2.5f;
     
 	std::vector < System::particle_t > particles;
@@ -72,28 +72,17 @@ int main(int argc, char ** argv)
 		{
 			system.push(sf::Vector2f(2.0f, 0.0f));
 		}
-
+        
 		window.clear();
-		
-        for (auto i = 0U; i < system.particles().size(); ++i)
-        {
-            sf::CircleShape circle(2.0f * r);
-
-            circle.setPosition(system.particle(i)->position() + sf::Vector2f(r, r));
-
-            circle.setFillColor(sf::Color(65, 247, 95));
-
-            window.draw(circle);
-        }
         
         sf::Vector2f left_up = sf::Vector2f(0.0f, 0.0f);
         sf::Vector2f left_down = sf::Vector2f(0.0f, 100.0f);
         sf::Vector2f right_up = sf::Vector2f(100.0f, 0.0f);
         sf::Vector2f right_down = sf::Vector2f(100.0f, 100.0f);
 
-        for (auto i = 1; i <= 10; ++i)
+        for (auto i = 0; i < 10; ++i)
         {
-            for (auto j = 1; j <= 10; ++j)
+            for (auto j = 0; j < 10; ++j)
             {
                 sf::ConvexShape square;
                 square.setPointCount(4);
@@ -105,11 +94,16 @@ int main(int argc, char ** argv)
 
                 int counter = 0;
 
-                for (auto & element: particles)
+                for (auto i = 0U; i < N; ++i)
                 {
-                    if (element->position().x > left_up.x and element->position().x < right_up.x and element->position().y > left_down.y and element->position().y < left_up.y)
+                    auto particle = particles[i];
+                    
+                    if (particle->position().x > left_up.x and particle->position().x < right_up.x)
                     {
-                        ++counter;
+                        if(particle->position().y > left_up.y and particle->position().y < left_down.y)
+                        {
+                            counter++;
+                        }
                     }
                 }
 
@@ -152,6 +146,17 @@ int main(int argc, char ** argv)
             left_down.y  += 100.0f;
             right_down.y += 100.0f;
         }
+        
+//        for (auto i = 0U; i < system.particles().size(); ++i)
+//        {
+//            sf::CircleShape circle(2.0f * r);
+//
+//            circle.setPosition(system.particle(i)->position() + sf::Vector2f(r, r));
+//
+//            circle.setFillColor(sf::Color::White);
+//
+//            window.draw(circle);
+//        }
 	
 		window.display();
 	}
