@@ -20,11 +20,11 @@
 		2D2124902643E09B00231B27 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		2D2124912643E09B00231B27 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2D2124A12643E1B400231B27 /* consolas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = consolas.ttf; sourceTree = "<group>"; };
-		2D2124A32643E1CD00231B27 /* calculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = calculator.hpp; path = ../../../../Downloads/mandelbrot/code/calculator.hpp; sourceTree = "<group>"; };
-		2D2124A42643E1CD00231B27 /* calculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = calculator.cpp; path = ../../../../Downloads/mandelbrot/code/calculator.cpp; sourceTree = "<group>"; };
-		2D2124A52643E1CD00231B27 /* visualizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = visualizer.cpp; path = ../../../../Downloads/mandelbrot/code/visualizer.cpp; sourceTree = "<group>"; };
-		2D2124A62643E1CD00231B27 /* view.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = view.hpp; path = ../../../../Downloads/mandelbrot/code/view.hpp; sourceTree = "<group>"; };
-		2D2124A72643E1CD00231B27 /* visualizer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = visualizer.hpp; path = ../../../../Downloads/mandelbrot/code/visualizer.hpp; sourceTree = "<group>"; };
+		2D2124A32643E1CD00231B27 /* calculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = calculator.hpp; sourceTree = "<group>"; };
+		2D2124A42643E1CD00231B27 /* calculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = calculator.cpp; sourceTree = "<group>"; };
+		2D2124A52643E1CD00231B27 /* visualizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = visualizer.cpp; sourceTree = "<group>"; };
+		2D2124A62643E1CD00231B27 /* view.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = view.hpp; sourceTree = "<group>"; };
+		2D2124A72643E1CD00231B27 /* visualizer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = visualizer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
