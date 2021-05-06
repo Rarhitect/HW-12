@@ -1,5 +1,6 @@
 #include <cmath>
 #include <vector>
+#include <random>
 
 #include <SFML/Graphics.hpp>
 
@@ -8,37 +9,31 @@
 
 int main(int argc, char ** argv)
 {
-	sf::RenderWindow window(sf::VideoMode(800U, 600U), "PHYSICS");
+	sf::RenderWindow window(sf::VideoMode(800U, 600U), "CHAOS MOVEMENT");
 
 	sf::Vector2f min_point(  0.0f,   0.0f);
 	sf::Vector2f max_point(775.0f, 575.0f);
 
-	const auto N_row = 3U;
-    
-    const auto N_column = 5U;
-
-    const auto init_distance = length(max_point - min_point) * 0.3f / N_row;
-
+    const auto N = 50U;
 	const auto r = 2.5f;
     
-    auto initial_position = (max_point - min_point) * 0.5f - sf::Vector2f(N_row * init_distance / 2, N_column * init_distance / 2);
-
-    auto position = initial_position;
-    
 	std::vector < System::particle_t > particles;
+    
+    std::random_device rd;
+    std::mt19937 mersenne(rd());
+    std::uniform_real_distribution < float > uni_x(1.0f, 774.0f);
+    std::uniform_real_distribution < float > uni_y(1.0f, 574.0f);
+    std::uniform_real_distribution < float > accel_x(-10.0f, 10.0f);
+    std::uniform_real_distribution < float > accel_y(-10.0f, 10.0f);
 
-	for (auto i = 0U; i < N_row * N_column; ++i)
+	for (auto i = 0U; i < N; ++i)
 	{
-        particles.push_back(std::make_shared < Particle > (position, position, sf::Vector2f(0.0f, 10.0f), r));
-        
-        if (i != 0 and (i+1) % N_column == 0)
-        {
-            position.y -= init_distance;
-            position.x = initial_position.x;
-            particles.push_back(std::make_shared < Particle > (position, position, sf::Vector2f(0.0f, 10.0f), r));
-        }
-        
-        position.x += init_distance;
+        sf::Vector2f position;
+        position.x = uni_x(mersenne);
+        position.y = uni_y(mersenne);
+        float accelx = accel_x(mersenne);
+        float accely = accel_y(mersenne);
+        particles.push_back(std::make_shared < Particle > (position, position, sf::Vector2f(accelx, accely), r));
 	}
 
 	System system(min_point, max_point, particles);

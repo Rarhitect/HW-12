@@ -7,7 +7,6 @@
 #include <SFML/Graphics.hpp>
 
 #include "functions.hpp"
-#include "link.hpp"
 #include "particle.hpp"
 
 class System
@@ -22,15 +21,9 @@ public:
 		    std::vector < particle_t > & particles) noexcept :
 			m_min_point(min_point), m_max_point(max_point), 
 			m_particles(particles)
-	{
-		initialize(3, 5);
-	}
+	{}
 
 	~System() noexcept = default;
-
-private:
-
-	void initialize(std::size_t size_row, std::size_t size_col);
 
 public:
 
@@ -56,6 +49,4 @@ private:
 	sf::Vector2f m_max_point;
 
 	std::vector < particle_t > m_particles;
-
-	std::vector < Link > m_links;
 };
