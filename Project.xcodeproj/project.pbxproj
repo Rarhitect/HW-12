@@ -109,17 +109,17 @@
 		2D2124B02643F1EE00231B27 /* Gravity Falls */ = {
 			isa = PBXGroup;
 			children = (
+				2D2124B32643F1EE00231B27 /* ResourcePath.mm */,
+				2D2124B52643F1EE00231B27 /* ResourcePath.hpp */,
+				2D2124C42643F26A00231B27 /* pressure.hpp */,
+				2D2124CA2643F26B00231B27 /* pressure.cpp */,
 				2D2124D02643F28300231B27 /* functions.hpp */,
 				2D2124C92643F26A00231B27 /* link.cpp */,
 				2D2124C52643F26A00231B27 /* link.hpp */,
 				2D2124C72643F26A00231B27 /* particle.cpp */,
 				2D2124C62643F26A00231B27 /* particle.hpp */,
-				2D2124CA2643F26B00231B27 /* pressure.cpp */,
-				2D2124C42643F26A00231B27 /* pressure.hpp */,
 				2D2124CB2643F26B00231B27 /* system.cpp */,
 				2D2124C82643F26A00231B27 /* system.hpp */,
-				2D2124B32643F1EE00231B27 /* ResourcePath.mm */,
-				2D2124B52643F1EE00231B27 /* ResourcePath.hpp */,
 				2D2124B62643F1EE00231B27 /* main.cpp */,
 			);
 			path = "Gravity Falls";
