@@ -85,7 +85,7 @@ int main(int argc, char ** argv)
 
             circle.setPosition(system.particle(i)->position() + sf::Vector2f(r, r));
 
-            circle.setFillColor(sf::Color::Blue);
+            circle.setFillColor(sf::Color(65, 247, 95));
 
             window.draw(circle);
         }

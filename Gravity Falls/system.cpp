@@ -3,7 +3,7 @@
 void System::initialize(std::size_t size_row, std::size_t size_col)
 {
     const auto size = std::size(m_particles);
-    const auto stiffness = 0.5f;
+    const auto stiffness = 0.3f;
 
 
     for (auto i = 0U; i < size_row; i++)
