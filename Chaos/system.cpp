@@ -17,21 +17,25 @@ void System::update() const
         if (m_particles[i]->position().y + m_particles[i]->radius() > m_max_point.y)
         {
             m_particles[i]->set_y(m_max_point.y - m_particles[i]->radius());
+            m_particles[i]->set_accely(-1 * m_particles[i]->acceleration().y);
         }
 
         if (m_particles[i]->position().y - m_particles[i]->radius() < m_min_point.y)
         {
             m_particles[i]->set_y(m_min_point.y + m_particles[i]->radius());
+            m_particles[i]->set_accely(-1 * m_particles[i]->acceleration().y);
         }
 
         if (m_particles[i]->position().x + m_particles[i]->radius() > m_max_point.x)
         {
             m_particles[i]->set_x(m_max_point.x - m_particles[i]->radius());
+            m_particles[i]->set_accelx(-1 * m_particles[i]->acceleration().x);
         }
 
         if (m_particles[i]->position().x - m_particles[i]->radius() < m_min_point.x)
         {
             m_particles[i]->set_x(m_min_point.x + m_particles[i]->radius());
+            m_particles[i]->set_accelx(-1 * m_particles[i]->acceleration().x);
         }
     }
 

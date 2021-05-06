@@ -27,6 +27,11 @@ public:
 	{
 		return m_radius;
 	}
+    
+    const auto acceleration() const noexcept
+    {
+        return m_acceleration;
+    }
 
 public:
 
@@ -39,6 +44,16 @@ public:
 	{
 		m_position.y = y;
 	}
+    
+    void set_accelx(float x) noexcept
+    {
+        m_acceleration.x = x;
+    }
+    
+    void set_accely(float y) noexcept
+    {
+        m_acceleration.y = y;
+    }
 
 public:
 
