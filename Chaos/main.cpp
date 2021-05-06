@@ -7,6 +7,7 @@
 #include "functions.hpp"
 #include "system.hpp"
 
+
 int main(int argc, char ** argv)
 {
 	sf::RenderWindow window(sf::VideoMode(1000U, 1000U), "CHAOS MOVEMENT");
@@ -14,7 +15,7 @@ int main(int argc, char ** argv)
 	sf::Vector2f min_point(  0.0f,   0.0f);
 	sf::Vector2f max_point(975.0f, 975.0f);
 
-    const auto N = 100U;
+    const auto N = 200U;
 	const auto r = 2.5f;
     
 	std::vector < System::particle_t > particles;
@@ -83,6 +84,73 @@ int main(int argc, char ** argv)
             circle.setFillColor(sf::Color(65, 247, 95));
 
             window.draw(circle);
+        }
+        
+        sf::Vector2f left_up = sf::Vector2f(0.0f, 0.0f);
+        sf::Vector2f left_down = sf::Vector2f(0.0f, 100.0f);
+        sf::Vector2f right_up = sf::Vector2f(100.0f, 0.0f);
+        sf::Vector2f right_down = sf::Vector2f(100.0f, 100.0f);
+
+        for (auto i = 1; i <= 10; ++i)
+        {
+            for (auto j = 1; j <= 10; ++j)
+            {
+                sf::ConvexShape square;
+                square.setPointCount(4);
+
+                square.setPoint(0, left_up);
+                square.setPoint(1, right_up);
+                square.setPoint(2, right_down);
+                square.setPoint(3, left_down);
+
+                int counter = 0;
+
+                for (auto & element: particles)
+                {
+                    if (element->position().x > left_up.x and element->position().x < right_up.x and element->position().y > left_down.y and element->position().y < left_up.y)
+                    {
+                        ++counter;
+                    }
+                }
+
+                if(counter == 0)
+                {
+                    square.setFillColor(sf::Color(169, 255, 175));
+                }
+                if(counter == 1 or counter == 2)
+                {
+                    square.setFillColor(sf::Color(88, 210, 96));
+                }
+                if(counter == 3 or counter == 4)
+                {
+                    square.setFillColor(sf::Color(62, 181, 70));
+                }
+                if(counter == 5 or counter == 6)
+                {
+                    square.setFillColor(sf::Color(42, 146, 49));
+                }
+                if(counter >= 7)
+                {
+                    square.setFillColor(sf::Color(11, 82, 16));
+                }
+                
+                window.draw(square);
+
+                left_up.x    += 100.0f;
+                right_up.x   += 100.0f;
+                left_down.x  += 100.0f;
+                right_down.x += 100.0f;
+            }
+
+            left_up.x    = 0.0f;
+            right_up.x   = 100.0f;
+            left_down.x  = 0.0f;
+            right_down.x = 100.0f;
+
+            left_up.y    += 100.0f;
+            right_up.y   += 100.0f;
+            left_down.y  += 100.0f;
+            right_down.y += 100.0f;
         }
 	
 		window.display();

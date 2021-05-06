@@ -21,7 +21,6 @@
 		2D2124F8264440A000231B27 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D2124EC2644409F00231B27 /* main.cpp */; };
 		2D2124FA264440A000231B27 /* system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D2124EF2644409F00231B27 /* system.cpp */; };
 		2D2124FE264440A000231B27 /* particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D2124F6264440A000231B27 /* particle.cpp */; };
-		2D2125252644585500231B27 /* visualiser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D2125232644585500231B27 /* visualiser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +54,6 @@
 		2D2124EF2644409F00231B27 /* system.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = system.cpp; sourceTree = "<group>"; };
 		2D2124F2264440A000231B27 /* particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = particle.hpp; sourceTree = "<group>"; };
 		2D2124F6264440A000231B27 /* particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = particle.cpp; sourceTree = "<group>"; };
-		2D2125232644585500231B27 /* visualiser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = visualiser.cpp; sourceTree = "<group>"; };
-		2D2125242644585500231B27 /* visualiser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = visualiser.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +153,6 @@
 				2D2124EC2644409F00231B27 /* main.cpp */,
 				2D2124EF2644409F00231B27 /* system.cpp */,
 				2D2124EE2644409F00231B27 /* system.hpp */,
-				2D2125232644585500231B27 /* visualiser.cpp */,
-				2D2125242644585500231B27 /* visualiser.hpp */,
 			);
 			path = Chaos;
 			sourceTree = "<group>";
@@ -369,7 +364,6 @@
 			files = (
 				2D2124F8264440A000231B27 /* main.cpp in Sources */,
 				2D2124FA264440A000231B27 /* system.cpp in Sources */,
-				2D2125252644585500231B27 /* visualiser.cpp in Sources */,
 				2D2124FE264440A000231B27 /* particle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
