@@ -1,31 +1,44 @@
 #include "system.hpp"
 
-void System::initialize(std::size_t size_row, std::size_t size_col)
+void System::initialize(std::size_t number_of_rows, std::size_t number_of_columns)
 {
     const auto size = std::size(m_particles);
     const auto stiffness = 0.8f;
 
 
-    for (auto i = 0U; i < size_row; i++)
+    for (auto i = 0U; i < number_of_rows; i++)
     {
-        for (auto j = 0U; j < size_col; j++)
+        for (auto j = 0U; j < number_of_columns; j++)
         {
+            if (i == 0)
+            {
+                if (j + 1 < number_of_columns)
+                {
+                    m_links.push_back(Link(particle(j), particle(j + 1), stiffness));
+                }
+            }
+            
             if (i > 0)
             {
-                m_links.push_back(Link(particle(i*size_col + j ), particle((i-1)*size_col + j), stiffness));
+                m_links.push_back(Link(particle(i * number_of_columns + j), particle((i - 1) * number_of_columns + j), stiffness));
+                
                 if (j > 0)
                 {
-                    m_links.push_back(Link(particle(i * size_col + j), particle((i - 1) * size_col + j - 1), stiffness));
+                    m_links.push_back(Link(particle(i * number_of_columns + j), particle((i - 1) * number_of_columns + j - 1), stiffness));
                 }
-                if (j + 1 < size_col)
+                
+                if (j + 1 < number_of_columns)
                 {
-                    m_links.push_back(Link(particle(i * size_col + j), particle((i - 1) * size_col + j + 1), stiffness));
+                    m_links.push_back(Link(particle(i * number_of_columns + j), particle((i - 1) * number_of_columns + j + 1), stiffness));
                 }
+                
             }
+            
             if (j > 0)
             {
-                m_links.push_back(Link(particle(i * size_col + j), particle(i * size_col + j -1), stiffness));
+                m_links.push_back(Link(particle(i * number_of_columns + j), particle(i * number_of_columns + j - 1), stiffness));
             }
+            
         }
     }
 }
