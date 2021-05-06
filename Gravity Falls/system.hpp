@@ -9,6 +9,7 @@
 #include "functions.hpp"
 #include "link.hpp"
 #include "particle.hpp"
+#include "pressure.hpp"
 
 class System
 {
@@ -19,18 +20,18 @@ public:
 public:
 
 	explicit System(sf::Vector2f min_point, sf::Vector2f max_point,
-		    std::vector < particle_t > & particles) noexcept :
+		    std::vector < particle_t > & particles, std::size_t rows, std::size_t columns) noexcept :
 			m_min_point(min_point), m_max_point(max_point), 
-			m_particles(particles)
+			m_particles(particles), m_rows(rows), m_columns(columns)//, m_pressure(particles)
 	{
-		initialize(3, 5);
+		initialize(m_rows, m_columns);
 	}
 
 	~System() noexcept = default;
 
 private:
 
-	void initialize(std::size_t size_row, std::size_t size_col);
+	void initialize(std::size_t rows, std::size_t columns);
 
 public:
 
@@ -54,8 +55,13 @@ private:
 
 	sf::Vector2f m_min_point;
 	sf::Vector2f m_max_point;
+    
+    std::size_t m_rows;
+    std::size_t m_columns;
 
 	std::vector < particle_t > m_particles;
+    
+    //Pressure m_pressure;
 
 	std::vector < Link > m_links;
 };

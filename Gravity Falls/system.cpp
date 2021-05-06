@@ -3,7 +3,7 @@
 void System::initialize(std::size_t size_row, std::size_t size_col)
 {
     const auto size = std::size(m_particles);
-    const auto stiffness = 0.3f;
+    const auto stiffness = 0.8f;
 
 
     for (auto i = 0U; i < size_row; i++)
@@ -25,7 +25,6 @@ void System::initialize(std::size_t size_row, std::size_t size_col)
             if (j > 0)
             {
                 m_links.push_back(Link(particle(i * size_col + j), particle(i * size_col + j -1), stiffness));
-
             }
         }
     }
@@ -70,4 +69,6 @@ void System::update() const
     {
         m_links[i].update();
     }
+    
+    //m_pressure.update();
 }

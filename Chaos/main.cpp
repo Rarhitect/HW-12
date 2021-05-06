@@ -9,22 +9,22 @@
 
 int main(int argc, char ** argv)
 {
-	sf::RenderWindow window(sf::VideoMode(800U, 600U), "CHAOS MOVEMENT");
+	sf::RenderWindow window(sf::VideoMode(1000U, 1000U), "CHAOS MOVEMENT");
 
 	sf::Vector2f min_point(  0.0f,   0.0f);
-	sf::Vector2f max_point(775.0f, 575.0f);
+	sf::Vector2f max_point(975.0f, 975.0f);
 
-    const auto N = 50U;
+    const auto N = 100U;
 	const auto r = 2.5f;
     
 	std::vector < System::particle_t > particles;
     
     std::random_device rd;
     std::mt19937 mersenne(rd());
-    std::uniform_real_distribution < float > uni_x(1.0f, 774.0f);
-    std::uniform_real_distribution < float > uni_y(1.0f, 574.0f);
-    std::uniform_real_distribution < float > accel_x(-10.0f, 10.0f);
-    std::uniform_real_distribution < float > accel_y(-10.0f, 10.0f);
+    std::uniform_real_distribution < float > uni_x(1.0f, 974.0f);
+    std::uniform_real_distribution < float > uni_y(1.0f, 974.0f);
+    std::uniform_real_distribution < float > accel_x(-7.0f, 7.0f);
+    std::uniform_real_distribution < float > accel_y(-7.0f, 7.0f);
 
 	for (auto i = 0U; i < N; ++i)
 	{

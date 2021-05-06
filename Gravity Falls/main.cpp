@@ -8,16 +8,16 @@
 
 int main(int argc, char ** argv)
 {
-	sf::RenderWindow window(sf::VideoMode(800U, 600U), "PHYSICS");
+	sf::RenderWindow window(sf::VideoMode(1500U, 1500U), "CRYSTALL");
 
 	sf::Vector2f min_point(  0.0f,   0.0f);
-	sf::Vector2f max_point(775.0f, 575.0f);
+	sf::Vector2f max_point(1475.0f, 1475.0f);
 
-	const auto N_row = 3U;
+	const auto N_row = 10U;
     
-    const auto N_column = 5U;
+    const auto N_column = 10U;
 
-    const auto init_distance = length(max_point - min_point) * 0.3f / N_row;
+    const auto init_distance = length(max_point - min_point) * 0.2f / N_row;
 
 	const auto r = 2.5f;
     
@@ -31,7 +31,7 @@ int main(int argc, char ** argv)
 	{
         particles.push_back(std::make_shared < Particle > (position, position, sf::Vector2f(0.0f, 10.0f), r));
         
-        if (i != 0 and (i+1) % N_column == 0)
+        if (i != 0 and (i+1) % N_column == 0 and i != (N_row * N_column - 1))
         {
             position.y -= init_distance;
             position.x = initial_position.x;
@@ -41,7 +41,7 @@ int main(int argc, char ** argv)
         position.x += init_distance;
 	}
 
-	System system(min_point, max_point, particles);
+	System system(min_point, max_point, particles, N_row, N_column);
 
 	sf::Event event;
 
