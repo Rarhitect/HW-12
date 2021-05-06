@@ -13,24 +13,32 @@ int main(int argc, char ** argv)
 	sf::Vector2f min_point(  0.0f,   0.0f);
 	sf::Vector2f max_point(775.0f, 575.0f);
 
-	const auto N = 50U;
+	const auto N_row = 10U;
+    
+    const auto N_column = 20U;
 
-	const auto R = length(max_point - min_point) * 0.1f;
-
-	const auto C = (min_point + max_point) * 0.5f;
+    const auto init_distance = length(max_point - min_point) * 0.4f / N_row;
 
 	const auto r = 2.5f;
+    
+    auto position = (max_point - min_point) * 0.5f - sf::Vector2f(N_row * init_distance / 2, N_column * init_distance / 2);
 
-	std::vector < System::particle_t > particles;
+	std::vector < std::vector < System::particle_t > > particles;
 
-	for (auto i = 0U; i < N; ++i)
+	for (auto i = 0U; i < N_row; ++i, position.y += init_distance)
 	{
-		auto angle = 2.0f * 3.141593f / N * i;
-
-		auto position = sf::Vector2f(std::cos(angle), std::sin(angle)) * R + C;
-
-		particles.push_back(std::make_shared < Particle > (position, position,
-			sf::Vector2f(0.0f, 10.0f), r));
+        std::vector < System::particle_t > particles_row;
+        
+        auto current_position = position;
+        
+        for (auto j = 0U; i < N_column; ++j)
+        {
+            particles_row.push_back(std::make_shared < Particle > (current_position, current_position, sf::Vector2f(0.0f, 10.0f), r));
+            
+            current_position.x += init_distance;
+        }
+        
+        particles.push_back(particles_row);
 	}
 
 	System system(min_point, max_point, particles);
@@ -73,13 +81,16 @@ int main(int argc, char ** argv)
 		
 		for (auto i = 0U; i < system.particles().size(); ++i)
 		{
-			sf::CircleShape circle(2.0f * r);
+            for (auto j = 0U; j < system.particles()[0].size(); ++j)
+            {
+                sf::CircleShape circle(2.0f * r);
 
-			circle.setPosition(system.particle(i)->position() + sf::Vector2f(r, r));
+                circle.setPosition(system.particle(i, j)->position() + sf::Vector2f(r, r));
 
-			circle.setFillColor(sf::Color::Red);
+                circle.setFillColor(sf::Color::Blue);
 
-			window.draw(circle);
+                window.draw(circle);
+            }
 		}
 	
 		window.display();
